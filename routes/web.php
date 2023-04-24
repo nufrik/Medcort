@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -20,8 +21,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::view('/', 'welcome')->name('home');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -54,3 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 });
+
+Route::get('/', [CategoryController::class, 'showAll'])->name('home');
+
+Route::get('category/{slug}', [CategoryController::class, 'showOne'])->name('category');
+

@@ -7,9 +7,9 @@ use App\Models\Category;
 class CategoryService implements CategoryServiceInterface
 {
 
-    public function getById(int $id): Category
+    public function getById($slug): Category
     {
-        return Category::where('id', $id)->firstOrFail();
+        return Category::where('slug', $slug)->firstOrFail();
     }
 
     public function getByAll()

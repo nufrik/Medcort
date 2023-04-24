@@ -14,9 +14,9 @@ class CategoryController extends Controller
         $this->categoryService = $categoryService;
     }
 
-    public function showOne($id)
+    public function showOne($slug)
     {
-        dump($this->categoryService->getById($id));
+        dump($this->categoryService->getById($slug));
     }
 
     public function showAll()

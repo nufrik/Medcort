@@ -11,4 +11,9 @@ class CategoryService implements CategoryServiceInterface
     {
         return Category::where('id', $id)->firstOrFail();
     }
+
+    public function getByAll()
+    {
+        return Category::all();
+    }
 }

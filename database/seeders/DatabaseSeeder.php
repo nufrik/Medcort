@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             RolesSeeder::class,
             CategorySeeder::class,
+            BooksSeeder::class,
         ]);
     }
 }

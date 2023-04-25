@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Services\CategoryServiceInterface;
 use Illuminate\Http\Request;
 
@@ -14,10 +15,6 @@ class CategoryController extends Controller
         $this->categoryService = $categoryService;
     }
 
-    public function showOne($slug)
-    {
-        dump($this->categoryService->getById($slug));
-    }
 
     public function showAll()
     {

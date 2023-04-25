@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
@@ -56,5 +57,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [CategoryController::class, 'showAll'])->name('home');
 
-Route::get('category/{slug}', [CategoryController::class, 'showOne'])->name('category');
+Route::get('/{slug}', [BookController::class, 'showBooks'])->name('books');
+
+
+
+
+
 

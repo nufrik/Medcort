@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+
     private BookServiceInterface $bookService;
 
     public function __construct(BookServiceInterface $bookService)

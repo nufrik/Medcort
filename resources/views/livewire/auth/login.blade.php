@@ -1,19 +1,22 @@
-@section('title', 'Sign in to your account')
+@section('title', 'Войти')
 
 <div>
+
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <a href="{{ route('home') }}">
-            <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
+        <a class="text-center" href="{{ route('home') }}">
+            <div class="text-5xl font-extrabold ...">
+                <span class="text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">На главную</span>
+            </div>
         </a>
 
-        <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
-            Sign in to your account
+        <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-100 leading-9">
+            Войдите в свою учетную запись
         </h2>
         @if (Route::has('register'))
             <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-                Or
+                или
                 <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    create a new account
+                    создайте новую учетную запись
                 </a>
             </p>
         @endif
@@ -24,7 +27,7 @@
             <form wire:submit.prevent="authenticate">
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Email address
+                        Адрес электронной почты
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -38,7 +41,7 @@
 
                 <div class="mt-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                        Password
+                        Пароль
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -54,13 +57,13 @@
                     <div class="flex items-center">
                         <input wire:model.lazy="remember" id="remember" type="checkbox" class="form-checkbox w-4 h-4 text-indigo-600 transition duration-150 ease-in-out" />
                         <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5">
-                            Remember
+                            запомнить
                         </label>
                     </div>
 
                     <div class="text-sm leading-5">
                         <a href="{{ route('password.request') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                            Forgot your password?
+                            Забыли пароль?
                         </a>
                     </div>
                 </div>
@@ -68,7 +71,7 @@
                 <div class="mt-6">
                     <span class="block w-full rounded-md shadow-sm">
                         <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                            Sign in
+                            Войти
                         </button>
                     </span>
                 </div>

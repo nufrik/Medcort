@@ -1,19 +1,21 @@
-@section('title', 'Create a new account')
+@section('title', 'Регистрация')
 
 <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <a href="{{ route('home') }}">
-            <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
+        <a class="text-center" href="{{ route('home') }}">
+            <div class="text-5xl font-extrabold ...">
+                <span class="text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">На главную</span>
+            </div>
         </a>
 
-        <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
-            Create a new account
+        <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-100 leading-9">
+            Создайте новую учетную запись
         </h2>
 
         <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-            Or
+            или
             <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                sign in to your account
+                войдите в свою учетную запись
             </a>
         </p>
     </div>
@@ -23,7 +25,7 @@
             <form wire:submit.prevent="register">
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
-                        Name
+                        Имя
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -37,7 +39,7 @@
 
                 <div class="mt-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Email address
+                        Адрес электронной почты
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -51,7 +53,7 @@
 
                 <div class="mt-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                        Password
+                        Пароль
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -65,7 +67,7 @@
 
                 <div class="mt-6">
                     <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
-                        Confirm Password
+                        Подтвердите пароль
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -76,7 +78,7 @@
                 <div class="mt-6">
                     <span class="block w-full rounded-md shadow-sm">
                         <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                            Register
+                            Зарегистрироваться
                         </button>
                     </span>
                 </div>

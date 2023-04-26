@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Books;
-use App\Models\Category;
 use App\Services\BookServiceInterface;
-use Illuminate\Http\Request;
+
 
 class BookController extends Controller
 {
@@ -17,8 +15,12 @@ class BookController extends Controller
         $this->bookService = $bookService;
     }
 
-    public function showBooks($slug)
+    public function showBooks(string $slug)
     {
-        return $this->bookService->getBooks($slug);
+        $data = $this->bookService->getBooksByCategorySlug($slug);
+
+        return view('books', [
+            'books' => $data,
+        ]);
     }
 }

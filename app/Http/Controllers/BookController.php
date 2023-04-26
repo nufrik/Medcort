@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Books;
 use App\Services\BookServiceInterface;
 
 
@@ -21,6 +22,13 @@ class BookController extends Controller
 
         return view('books', [
             'books' => $data,
+        ]);
+    }
+
+    public function showBook(string $slug, string $bookSlug)
+    {
+        return view('show-book', [
+           'book' => $this->bookService->getBookByCategorySlug($slug, $bookSlug),
         ]);
     }
 }

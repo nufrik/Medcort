@@ -2,11 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\Category;
-
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface BookServiceInterface
 {
-    public function getBooks($slug);
+    public function getBooksByCategorySlug(string $slug) : LengthAwarePaginator;
 
 }

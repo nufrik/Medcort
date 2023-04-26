@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\Category;
 
+use Illuminate\Database\Eloquent\Collection;
 
 interface CategoryServiceInterface
 {
-    public function getByAll();
+    public function getByAll() : Collection;
 }

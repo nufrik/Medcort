@@ -15,4 +15,15 @@ class BookService implements BookServiceInterface
 
         return $books;
     }
+
+    public function getBookByCategorySlug(string $slug, string $bookSlug) : Books
+    {
+        $book = Books::join('categories', 'categories.id', '=', 'books.category_id')
+            ->where('categories.slug', '=', $slug)
+            ->where('books.slug', '=', $bookSlug)
+            ->select('books.*')
+            ->first();
+
+        return $book;
+    }
 }

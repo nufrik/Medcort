@@ -2,18 +2,17 @@
 
 namespace App\Services;
 
-use App\Models\Category;
+use App\Models\Books;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class BookService implements BookServiceInterface
 {
-    public function getBooks($slug)
+    public function getBooksByCategorySlug(string $slug) : LengthAwarePaginator
     {
-        $category = Category::where('slug', '=', $slug)->get();
+        $books = Books::join('categories', 'categories.id', '=', 'books.category_id')
+            ->where('categories.slug', '=', $slug)->select('books.*')->paginate(10);
 
-        foreach ($category as $books){
-            foreach ($books->books as $book){
-                dump($book);
-            }
-        }
+        return $books;
     }
 }

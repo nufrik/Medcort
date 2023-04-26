@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\AdminService;
+use App\Services\AdminServiceInterface;
 use App\Services\BookService;
 use App\Services\BookServiceInterface;
 use App\Services\CategoryService;
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             BookServiceInterface::class,
             BookService::class,
+        );
+        $this->app->bind(
+            AdminServiceInterface::class,
+            AdminService::class,
         );
     }
 

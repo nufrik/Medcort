@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -57,7 +59,14 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [CategoryController::class, 'showAll'])->name('home');
 
-Route::get('/{slug}', [BookController::class, 'showBooks'])->name('books');
+Route::get('/category/{slug}', [BookController::class, 'showBooks'])->name('books');
+
+Route::get('admin', [AdminController::class, 'admin'])->middleware('auth')->name('admin');
+Route::get('admin/users', [AdminController::class, 'showUsers'])->middleware('auth')->name('admin.users');
+Route::get('admin/categories', [AdminController::class, 'showCategories'])->middleware('auth')->name('admin.categories');
+Route::get('admin/books', [AdminController::class, 'showBooks'])->middleware('auth')->name('admin.books');
+
+Route::get('employee', [EmployeeController::class, 'employee'])->middleware('auth')->name('employee');
 
 
 

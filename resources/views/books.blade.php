@@ -11,7 +11,7 @@
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">Список книг</span>
             </div>
             @foreach($books as $book)
-                <div class="mt-6 rounded-full flex justify-center box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 basis-1/4"><a href ="#">{{ $book->title }}</a></div>
+                <div class="mt-6 rounded-full flex justify-center box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 basis-1/4"><a href ="{{ route('book', ['slug' => $book->category->slug, 'bookSlug' => $book->slug]) }}">{{ $book->title }}</a></div>
             @endforeach
             <div class="mt-2">
                 {{ $books->links() }}

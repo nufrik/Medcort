@@ -25,10 +25,10 @@ class BookController extends Controller
         ]);
     }
 
-    public function showBook(string $slug, string $bookSlug)
+    public function showBook(string $slug)
     {
         return view('show-book', [
-           'book' => $this->bookService->getBookByCategorySlug($slug, $bookSlug),
+            'book' => $this->bookService->getBookBySlug($slug),
         ]);
     }
 }

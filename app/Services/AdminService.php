@@ -24,4 +24,21 @@ class AdminService implements AdminServiceInterface
     {
         return Books::all();
     }
+
+    public function changeUserRoleById($id) : bool
+    {
+        $user = User::findOrfail($id);
+
+        if($user->role_id == 1){
+            $user->role_id = 2;
+        }elseif($user->role_id == 2){
+            $user->role_id = 1;
+        }
+        return $user->save();
+    }
+
+    public function deleteUserById(int $id) : bool
+    {
+        return User::destroy($id);
+    }
 }

@@ -61,6 +61,8 @@ Route::get('/', [CategoryController::class, 'showAll'])->name('home');
 
 Route::get('/category/{slug}', [BookController::class, 'showBooks'])->name('books');
 
+Route::get('/books/{slug}', [BookController::class, 'showBook'])->name('book');
+
 Route::get('admin', [AdminController::class, 'admin'])->middleware('auth')->name('admin');
 Route::get('admin/users', [AdminController::class, 'showUsers'])->middleware('auth')->name('admin.users');
 Route::get('admin/categories', [AdminController::class, 'showCategories'])->middleware('auth')->name('admin.categories');

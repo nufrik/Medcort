@@ -9,7 +9,7 @@
 
 
             <table class="ml-10 table-auto border-collapse border border-slate-500 text-white border-separate">
-                <caption class="caption-top">
+                <caption class="caption-top text-center">
                     Категории.
                 </caption>
                 <thead>

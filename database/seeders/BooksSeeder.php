@@ -234,7 +234,7 @@ class BooksSeeder extends Seeder
                 'title' => 'Книга 25',
                 'slug'  => 'book-25',
                 'author' => 'Автор книги 25',
-                'description' => 'Описание книги 5',
+                'description' => 'Описание книги 25',
                 'rating' => random_int(1,50),
                 'cover' => 'https://via.placeholder.com/200x150',
                 'category_id' => '2',

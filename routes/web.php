@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
         ->middleware('signed')
         ->name('verification.verify');
 
-    Route::post('logout', LogoutController::class)
+    Route::get('logout', LogoutController::class)
         ->name('logout');
 });
 
@@ -64,9 +64,15 @@ Route::get('/category/{slug}', [BookController::class, 'showBooks'])->name('book
 Route::get('/books/{slug}', [BookController::class, 'showBook'])->name('book');
 
 Route::get('admin', [AdminController::class, 'admin'])->middleware('auth')->name('admin');
+
 Route::get('admin/users', [AdminController::class, 'showUsers'])->middleware('auth')->name('admin.users');
 Route::get('admin/categories', [AdminController::class, 'showCategories'])->middleware('auth')->name('admin.categories');
 Route::get('admin/books', [AdminController::class, 'showBooks'])->middleware('auth')->name('admin.books');
+
+Route::match(['get', 'post'], 'admin/users/change-role/{id}', [AdminController::class, 'changeRole'])->middleware('auth')->name('change.role');
+Route::match(['get', 'post'], 'admin/users/delete/{id}', [AdminController::class, 'deleteUser'])->middleware('auth')->name('delete.user');
+
+Route::match(['get', 'post'], 'create/new/category', [CategoryController::class, 'createForm'])->middleware('auth')->name('new.category');
 
 Route::get('employee', [EmployeeController::class, 'employee'])->middleware('auth')->name('employee');
 

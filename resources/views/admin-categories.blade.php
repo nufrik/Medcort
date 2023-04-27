@@ -7,6 +7,7 @@
     @if(Auth::user()->role_id == 3)
 
 
+            <div class="container-center">
 
             <table class="ml-10 table-auto border-collapse border border-slate-500 text-white border-separate">
                 <caption class="caption-top text-center">
@@ -16,6 +17,8 @@
                 <tr>
                     <th class="border border-slate-600">№</th>
                     <th class="border border-slate-600">Жанр</th>
+                    <th class="border border-slate-600">Изменить</th>
+                    <th class="border border-slate-600">Удалить</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,13 +26,19 @@
                     <tr>
                         <td class="border border-slate-700">{{ $category->id }}</td>
                         <td class="border border-slate-700">{{ $category->title }}</td>
+                        <td class="border border-slate-700"><a href="#" >Изменить</a></td>
+                        <td class="border border-slate-700 text-danger"><a href="#" >Удалить</a></td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
 
 
+                    <div class="mt-2 ml-10">
+                        <a href="{{ route('new.category') }}"><button type="submit" class="btn btn-primary">Добавить категорию</button></a>
+                    </div>
 
+            </div>
 
     @else
         <h1 class="text-white text-5xl">У вас нет доступа!</h1>

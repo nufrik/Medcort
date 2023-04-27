@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\AdminServiceInterface;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -16,11 +15,7 @@ class AdminController extends Controller
 
     public function admin()
     {
-        return view('admin',[
-            'users' => $this->adminService->getAllUsers(),
-            'categories' => $this->adminService->getAllCategories(),
-            'books' => $this->adminService->getAllBooks(),
-        ]);
+        return view('admin');
     }
 
     public function showUsers()
@@ -40,5 +35,17 @@ class AdminController extends Controller
         return view('admin-books',[
             'books' => $this->adminService->getAllBooks(),
         ]);
+    }
+
+    public function changeRole(int $id)
+    {
+        $this->adminService->changeUserRoleById($id);
+        return redirect()->route('admin.users');
+    }
+
+    public function deleteUser(int $id)
+    {
+        $this->adminService->deleteUserById($id);
+        return redirect()->route('admin.users');
     }
 }

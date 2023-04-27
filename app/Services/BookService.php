@@ -19,7 +19,6 @@ class BookService implements BookServiceInterface
     public function getBookBySlug(string $slug) : Books
     {
         $book = Books::where('slug', '=', $slug)->first();
-
         return $book;
     }
 

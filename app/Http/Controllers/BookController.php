@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Books;
 use App\Services\BookServiceInterface;
 
 

@@ -22,4 +22,9 @@ class CategoryController extends Controller
            'categories' => $this->categoryService->getByAll(),
         ]);
     }
+
+    public function createForm()
+    {
+        return view('new-category');
+    }
 }

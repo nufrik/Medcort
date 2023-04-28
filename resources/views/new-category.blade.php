@@ -11,7 +11,7 @@
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">Новая категория</span>
                 </div>
                 <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-                    <form action="#" method="POST">
+                    <form action="" method="POST">
                         @csrf
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 leading-5">

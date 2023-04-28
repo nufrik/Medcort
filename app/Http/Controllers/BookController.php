@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Book\CreateRequest;
+use App\Models\Category;
 use App\Services\BookServiceInterface;
 
 
@@ -29,5 +31,26 @@ class BookController extends Controller
         return view('show-book', [
             'book' => $this->bookService->getBookBySlug($slug),
         ]);
+    }
+
+    public function createForm(CreateRequest $request)
+    {
+        if($request->has('title') and $request->has('description') and $request->has('cover') and $request->has('author') and $request->has('rating')) {
+            $this->bookService->createBook($request);
+            return redirect()->route('admin.books');
+        }
+        return view('new-book', [
+            'categories' => Category::all(),
+        ]);
+    }
+
+    public function editBook()
+    {
+
+    }
+
+    public function deleteBook()
+    {
+
     }
 }

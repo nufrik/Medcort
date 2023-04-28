@@ -22,11 +22,11 @@ class EditRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:30'],
-            'author' => ['required', 'string', 'max:50'],
-            'description' => ['required', 'string', 'max:10000'],
-            'rating' => [ 'required', 'numeric'],
-            'cover' => ['required', 'image'],
+            'title' => ['string', 'max:30'],
+            'author' => ['string', 'max:50'],
+            'description' => ['string', 'max:10000'],
+            'rating' => ['numeric'],
+            'cover' => ['image'],
         ];
     }
 }

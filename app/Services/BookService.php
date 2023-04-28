@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Http\Requests\Book\CreateRequest;
+use App\Http\Requests\Book\EditRequest;
 use App\Models\Books;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -22,15 +24,30 @@ class BookService implements BookServiceInterface
         return $book;
     }
 
-
-    /*public function getBookByCategorySlug(string $slug, string $bookSlug) : Books
+    public function createBook(CreateRequest $request) : bool
     {
-        $book = Books::join('categories', 'categories.id', '=', 'books.category_id')
-            ->where('categories.slug', '=', $slug)
-            ->where('books.slug', '=', $bookSlug)
-            ->select('books.*')
-            ->first();
+        $data = $request->validated();
+        $translit = str_slug($data['title']);
+        $path = $request->file('cover')->store('/covers', 'public');
+        $book = new Books();
+        $book->title = $request->input('title');
+        $book->slug = $translit;
+        $book->author = $request->input('author');
+        $book->description = $request->input('description');
+        $book->rating = $request->input('rating');
+        $book->cover = $path;
+        $book->category_id = $request->input('category_id');
 
-        return $book;
-    }*/
+        return $book->save();
+    }
+
+    public function editBookById(int $id, EditRequest $request) : bool
+    {
+
+    }
+
+    public function deleteBookById(int $id) : bool
+    {
+
+    }
 }

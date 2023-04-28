@@ -73,6 +73,8 @@ Route::match(['get', 'post'], 'admin/users/change-role/{id}', [AdminController::
 Route::match(['get', 'post'], 'admin/users/delete/{id}', [AdminController::class, 'deleteUser'])->middleware('auth')->name('delete.user');
 
 Route::match(['get', 'post'], 'create/new/category', [CategoryController::class, 'createForm'])->middleware('auth')->name('new.category');
+Route::match(['get', 'post'], 'edit/category/{id}', [CategoryController::class, 'editCategory'])->middleware('auth')->name('edit.category');
+Route::match(['get', 'post'], 'delete/category/{id}', [CategoryController::class, 'deleteCategory'])->middleware('auth')->name('delete.category');
 
 Route::get('employee', [EmployeeController::class, 'employee'])->middleware('auth')->name('employee');
 

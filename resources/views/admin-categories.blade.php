@@ -26,8 +26,8 @@
                     <tr>
                         <td class="border border-slate-700">{{ $category->id }}</td>
                         <td class="border border-slate-700">{{ $category->title }}</td>
-                        <td class="border border-slate-700"><a href="#" >Изменить</a></td>
-                        <td class="border border-slate-700 text-danger"><a href="#" >Удалить</a></td>
+                        <td class="border border-slate-700"><a href="{{ route('edit.category', ['id' => $category->id]) }}" >Изменить</a></td>
+                        <td class="border border-slate-700 text-danger"><a href="{{ route('delete.category', ['id' => $category->id]) }}" >Удалить</a></td>
                     </tr>
                 @endforeach
                 </tbody>

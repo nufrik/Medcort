@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Book\CreateRequest;
+use App\Http\Requests\Book\EditRequest;
+use App\Models\Books;
 use App\Models\Category;
 use App\Services\BookServiceInterface;
 
@@ -44,13 +46,21 @@ class BookController extends Controller
         ]);
     }
 
-    public function editBook()
+    public function editBook(int $id, EditRequest $request)
     {
-
+        if($request->has('title') and $request->has('description') and $request->has('cover') and $request->has('author') and $request->has('rating')) {
+            $this->bookService->editBookById($id, $request);
+            return redirect()->route('admin.books');
+        }
+        return view('edit-book', [
+            'book' => Books::findOrFail($id),
+            'categories' => Category::all(),
+        ]);
     }
 
-    public function deleteBook()
+    public function deleteBook(int $id)
     {
-
+        $this->bookService->deleteBookById($id);
+        return redirect()->route('admin.books');
     }
 }

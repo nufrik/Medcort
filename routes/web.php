@@ -76,6 +76,10 @@ Route::match(['get', 'post'], 'create/new/category', [CategoryController::class,
 Route::match(['get', 'post'], 'edit/category/{id}', [CategoryController::class, 'editCategory'])->middleware('auth')->name('edit.category');
 Route::match(['get', 'post'], 'delete/category/{id}', [CategoryController::class, 'deleteCategory'])->middleware('auth')->name('delete.category');
 
+Route::match(['get', 'post'], 'create/new/book', [BookController::class, 'createForm'])->middleware('auth')->name('new.book');
+Route::match(['get', 'post'], 'edit/book/{id}', [BookController::class, 'editBook'])->middleware('auth')->name('edit.book');
+Route::match(['get', 'post'], 'delete/delete/{id}', [BookController::class, 'deleteBook'])->middleware('auth')->name('delete.book');
+
 Route::get('employee', [EmployeeController::class, 'employee'])->middleware('auth')->name('employee');
 
 

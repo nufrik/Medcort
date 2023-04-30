@@ -7,7 +7,7 @@
 
 
         <div class="p-6 mx-auto max-w-7xl lg:p-8">
-            <div class="text-5xl font-extrabold ">
+            <div class="text-5xl font-extrabold text-center">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">Список книг</span>
             </div>
             @foreach($books as $book)

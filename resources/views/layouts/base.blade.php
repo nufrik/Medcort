@@ -26,6 +26,13 @@
     </head>
 
     <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-gray-900 shadow-sm">
+        <div class="container text-3xl font-extrabold">
+            <a class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500" href="{{ route('home') }}">
+                {{ 'Главная' }}
+            </a>
+        </div>
+    </nav>
         @yield('body')
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

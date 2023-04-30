@@ -7,7 +7,7 @@
     @if(Auth::user()->role_id == 1 or Auth::user()->role_id == 3)
 
             <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div class="mb-4 text-5xl font-extrabold">
+                <div class="mb-4 text-5xl font-extrabold text-center">
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">Редактировать категорию</span>
                 </div>
                 <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">

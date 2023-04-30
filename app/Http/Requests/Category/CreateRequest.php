@@ -23,7 +23,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'title' => [
-                'string',
+                'string', 'unique:categories,title'
             ],
         ];
     }

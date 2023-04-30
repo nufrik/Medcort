@@ -17,6 +17,7 @@
                     <th class="border border-slate-600">№</th>
                     <th class="border border-slate-600">Название</th>
                     <th class="border border-slate-600">Автор</th>
+                    <th class="border border-slate-600">Категория</th>
                     <th class="border border-slate-600">Описание</th>
                     <th class="border border-slate-600">Изменить</th>
                     <th class="border border-slate-600">Удалить</th>
@@ -28,6 +29,7 @@
                         <td class="border border-slate-700">{{ $book->id }}</td>
                         <td class="border border-slate-700">{{ $book->title }}</td>
                         <td class="border border-slate-700">{{ $book->author }}</td>
+                        <td class="border border-slate-700">{{ $book->category->title }}</td>
                         <td class="border border-slate-700">{{ $book->description }}</td>
                         <td class="border border-slate-700"><a href="{{ route('edit.book', ['id' => $book->id]) }}" >Изменить</a></td>
                         <td class="border border-slate-700 text-danger"><a href="{{ route('delete.book', ['id' => $book->id]) }}" >Удалить</a></td>

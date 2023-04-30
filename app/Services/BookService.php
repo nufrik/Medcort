@@ -43,11 +43,25 @@ class BookService implements BookServiceInterface
 
     public function editBookById(int $id, EditRequest $request) : bool
     {
+        $book = Books::findOrFail($id);
+
+        $data = $request->validated();
+        $translit = str_slug($data['title']);
+        $path = $request->file('cover')->store('/covers', 'public');
+        $book->title = $request->input('title');
+        $book->slug = $translit;
+        $book->author = $request->input('author');
+        $book->description = $request->input('description');
+        $book->rating = $request->input('rating');
+        $book->cover = $path;
+        $book->category_id = $request->input('category_id');
+
+        return $book->save();
 
     }
 
     public function deleteBookById(int $id) : bool
     {
-
+        return Books::destroy($id);
     }
 }

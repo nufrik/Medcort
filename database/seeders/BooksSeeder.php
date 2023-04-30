@@ -582,6 +582,15 @@ class BooksSeeder extends Seeder
                 'category_id' => '4',
             ],
             [
+                'title' => 'Книга 64',
+                'slug'  => 'book-64',
+                'author' => 'Автор книги 64',
+                'description' => 'Описание книги 64',
+                'rating' => random_int(1,50),
+                'cover' => 'covers/ZcohSao03n4tbOV5gr8BYc07gZoj7Qs18IJXqkyz.png',
+                'category_id' => '4',
+            ],
+            [
                 'title' => 'Книга 65',
                 'slug'  => 'book-65',
                 'author' => 'Автор книги 65',

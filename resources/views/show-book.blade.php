@@ -7,7 +7,8 @@
 
 
         <div class="card">
-            <img src="{{ $book->cover }}" class="card-img-top" alt="...">
+            <img src="{{ asset('/storage/' . $book->cover) }}" class="card-img-top" alt="...">
+
             <div class="card-body">
                 <h5 class="card-title text-2xl font-bold">{{ $book->title }}</h5>
                 <p class="card-text">{{ $book->description }}</p>
@@ -18,4 +19,7 @@
             </div>
         </div>
     </div>
+
 @endsection
+
+

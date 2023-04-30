@@ -4,8 +4,8 @@
 
     @yield('content')
 
-
     @if (Route::has('login'))
+
 
         <div class="p-6 text-right sm:fixed sm:top-0 sm:right-0">
 

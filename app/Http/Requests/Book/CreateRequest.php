@@ -22,7 +22,7 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['string', 'max:30'],
+            'title' => ['string', 'unique:books,title' ,'max:30'],
             'author' => ['string', 'max:50'],
             'description' => ['string', 'max:10000'],
             'rating' => ['numeric'],

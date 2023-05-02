@@ -81,6 +81,8 @@ Route::match(['get', 'post'], 'edit/book/{id}', [BookController::class, 'editBoo
 Route::match(['get', 'post'], 'delete/delete/{id}', [BookController::class, 'deleteBook'])->middleware('auth')->name('delete.book');
 
 Route::get('employee', [EmployeeController::class, 'employee'])->middleware('auth')->name('employee');
+Route::get('employee/categories', [EmployeeController::class, 'showCategories'])->middleware('auth')->name('employee.categories');
+Route::get('employee/books', [EmployeeController::class, 'showBooks'])->middleware('auth')->name('employee.books');
 
 
 

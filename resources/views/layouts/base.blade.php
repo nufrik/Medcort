@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-gray-900 shadow-sm">
         <div class="container text-3xl font-extrabold">
             <a class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500" href="{{ route('home') }}">
-                {{ 'Главная' }}
+                <img src="{{ '/storage/head/head.jpg' }}" class="card-img-top" alt="...">
             </a>
         </div>
     </nav>

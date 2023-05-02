@@ -6,6 +6,7 @@ use App\Http\Requests\Book\CreateRequest;
 use App\Http\Requests\Book\EditRequest;
 use App\Models\Books;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Services\BookServiceInterface;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,6 +34,7 @@ class BookController extends Controller
     {
         return view('show-book', [
             'book' => $this->bookService->getBookBySlug($slug),
+            'comments' => $this->bookService->getBookBySlug($slug)->comments()->get(),
         ]);
     }
 

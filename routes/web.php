@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
@@ -83,6 +84,8 @@ Route::match(['get', 'post'], 'delete/delete/{id}', [BookController::class, 'del
 Route::get('employee', [EmployeeController::class, 'employee'])->middleware('auth')->name('employee');
 Route::get('employee/categories', [EmployeeController::class, 'showCategories'])->middleware('auth')->name('employee.categories');
 Route::get('employee/books', [EmployeeController::class, 'showBooks'])->middleware('auth')->name('employee.books');
+
+Route::match(['get', 'post'], '/comment/add/{id}', [CommentController::class, 'create'])->name('add.comment');
 
 
 

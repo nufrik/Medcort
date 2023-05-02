@@ -7,6 +7,7 @@ use App\Models\Books;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AdminService implements AdminServiceInterface
 {
@@ -20,9 +21,11 @@ class AdminService implements AdminServiceInterface
         return Category::all();
     }
 
-    public function getAllBooks() : Collection
+    public function getAllBooks() : LengthAwarePaginator
     {
-        return Books::all();
+        $books = Books::paginate(10);
+
+        return $books;
     }
 
     public function changeUserRoleById($id) : bool

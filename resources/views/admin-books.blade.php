@@ -8,7 +8,7 @@
 
 
             <div class="container-center">
-            <table class="ml-10 mt-10 table-auto border-collapse border border-slate-500 text-white border-separate">
+            <table class="ml-60 mt-10 table-auto border-collapse border border-slate-500 text-white border-separate">
                 <caption class="caption-top text-center">
                     Книги.
                 </caption>
@@ -37,6 +37,9 @@
                 @endforeach
                 </tbody>
             </table>
+                <div class="mt-2">
+                    {{ $books->links() }}
+                </div>
 
                 <div class="mt-2 ml-10">
                     <a href="{{ route('new.book') }}"><button type="submit" class="btn btn-primary">Добавить Книгу</button></a>

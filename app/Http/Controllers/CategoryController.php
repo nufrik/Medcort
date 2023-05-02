@@ -6,6 +6,7 @@ use App\Http\Requests\Category\CreateRequest;
 use App\Http\Requests\Category\EditRequest;
 use App\Models\Category;
 use App\Services\CategoryServiceInterface;
+use Illuminate\Support\Facades\Auth;
 
 
 class CategoryController extends Controller
@@ -29,7 +30,12 @@ class CategoryController extends Controller
     {
         if($request->has('title')) {
             $this->categoryService->createCategory($request);
-            return redirect()->route('admin.categories');
+            if(Auth::user()->role_id == 3){
+                return redirect()->route('admin.categories');
+            } else {
+                return redirect()->route('employee.categories');
+            }
+
         }
         return view('new-category');
     }
@@ -38,7 +44,11 @@ class CategoryController extends Controller
     {
         if($request->has('title')) {
             $this->categoryService->editCategoryById($id, $request);
-            return redirect()->route('admin.categories');
+            if(Auth::user()->role_id == 3){
+                return redirect()->route('admin.categories');
+            } else {
+                return redirect()->route('employee.categories');
+            }
         }
         $category = Category::findOrFail($id);
         return view('edit-category',[
@@ -49,6 +59,10 @@ class CategoryController extends Controller
     public function deleteCategory(int $id)
     {
         $this->categoryService->deleteCategoryById($id);
-        return redirect()->route('admin.categories');
+        if(Auth::user()->role_id == 3){
+            return redirect()->route('admin.categories');
+        } else {
+            return redirect()->route('employee.categories');
+        }
     }
 }

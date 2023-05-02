@@ -7,6 +7,7 @@ use App\Http\Requests\Book\EditRequest;
 use App\Models\Books;
 use App\Models\Category;
 use App\Services\BookServiceInterface;
+use Illuminate\Support\Facades\Auth;
 
 
 class BookController extends Controller
@@ -39,7 +40,11 @@ class BookController extends Controller
     {
         if($request->has('title') and $request->has('description') and $request->has('cover') and $request->has('author') and $request->has('rating')) {
             $this->bookService->createBook($request);
-            return redirect()->route('admin.books');
+            if(Auth::user()->role_id == 3){
+                return redirect()->route('admin.books');
+            } else {
+                return redirect()->route('employee.books');
+            }
         }
         return view('new-book', [
             'categories' => Category::all(),
@@ -50,7 +55,11 @@ class BookController extends Controller
     {
         if($request->has('title') and $request->has('description') and $request->has('cover') and $request->has('author') and $request->has('rating')) {
             $this->bookService->editBookById($id, $request);
-            return redirect()->route('admin.books');
+            if(Auth::user()->role_id == 3){
+                return redirect()->route('admin.books');
+            } else {
+                return redirect()->route('employee.books');
+            }
         }
         return view('edit-book', [
             'book' => Books::findOrFail($id),
@@ -61,6 +70,10 @@ class BookController extends Controller
     public function deleteBook(int $id)
     {
         $this->bookService->deleteBookById($id);
-        return redirect()->route('admin.books');
+        if(Auth::user()->role_id == 3){
+            return redirect()->route('admin.books');
+        } else {
+            return redirect()->route('employee.books');
+        }
     }
 }

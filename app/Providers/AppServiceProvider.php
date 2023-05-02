@@ -8,6 +8,8 @@ use App\Services\BookService;
 use App\Services\BookServiceInterface;
 use App\Services\CategoryService;
 use App\Services\CategoryServiceInterface;
+use App\Services\EmployeeService;
+use App\Services\EmployeeServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             AdminServiceInterface::class,
             AdminService::class,
+        );
+        $this->app->bind(
+            EmployeeServiceInterface::class,
+            EmployeeService::class,
         );
     }
 
